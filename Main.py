@@ -1,7 +1,11 @@
 # Elifaleth Cantu Alanis
 # Date: 2/17/2016
 
+def getXY():
+    return
+
 f = open('w-2Format', 'r+')
+latexF = open("w-2_format.tex",'r+')
 info = {}
 i=0
 field=""
@@ -20,34 +24,38 @@ for line in f: # Reads all the lines in the file
             else:
                 field = field+"\n"+line.strip('\n')
 
-i = 1
+name = ""
+suff = ""
+lastName = ""
+address = ""
+emploAddress = ""
 for key in info.keys():
     if(key == 'control_number'):
-        print(info[key])
+        latexF.write(info[key])
     elif(key == "federal_ein"):
-        print(info[key])
+        latexF.write(info[key])
     elif(key == "employer_name"):
-        print(info[key])
+        latexF.write("\n\PlaceText{"+str(15)+"mm}{"+str(22)+"mm}{"+info[key]+"}")
     elif(key == "employer_address"):
-        print(info[key])
+        emploAddress = info[key]
     elif(key == "ssn"):
-        print(info[key])
+        latexF.write(info[key])
     elif(key == "emp_name"):
-        print(info[key])
+        name = info[key]
     elif(key == "last_name"):
-        print(info[key])
+        lastName = info[key]
     elif(key == "emp_suffix"):
-        print(info[key])
+        suff=info[key]
     elif(key == "employee_address"):
-        print(info[key])
+        address = info[key]
     elif(key == "wages_tips_compensation"):
-        print(info[key])
+        latexF.write(info[key])
     elif(key == "fit_withheld"):
         print(info[key])
     elif(key == "ss_wages"):
-        print(info[key])
+        latexF.write("\n\PlaceText{"+str(132)+"mm}{"+str(14)+"mm}{"+info[key]+"}")
     elif(key == "ss_withheld"):
-        print(info[key])
+        latexF.write("\n\PlaceText{"+str(170)+"mm}{"+str(14)+"mm}{"+info[key]+"}")
     elif(key == "med_wages"):
         print(info[key])
     elif(key == "med_withheld"):
@@ -133,5 +141,24 @@ for key in info.keys():
     elif(key == "print_instruction"):
         print(info[key])
 
-    print (i)
+latexF.write("\n\PlaceText{"+str(15)+"mm}{"+str(42)+"mm}{"+name+" "+suff+" "+lastName+"}")
+
+i = 0
+for a in address.split('\n'):
+    if(i==0):
+        a1 = a
+    else:
+        a2 = a
     i += 1
+latexF.write("\n\PlaceText{"+str(15)+"mm}{"+str(48)+"mm}{"+a1+"}")
+latexF.write("\n\PlaceText{"+str(15)+"mm}{"+str(52)+"mm}{"+a2+"}")
+
+i = 0
+for a in emploAddress.split('\n'):
+    if(i==0):
+        a1 = a
+    else:
+        a2 = a
+    i += 1
+latexF.write("\n\PlaceText{"+str(15)+"mm}{"+str(27)+"mm}{"+a1+"}")
+latexF.write("\n\PlaceText{"+str(15)+"mm}{"+str(32)+"mm}{"+a2+"}")
