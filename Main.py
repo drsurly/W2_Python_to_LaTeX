@@ -7,10 +7,15 @@ from tkinter import filedialog
 root = tk.Tk()
 root.withdraw()
 file_path = filedialog.askopenfilename()
-print(file_path)
+
+lengthPath=0
+for s in file_path.split("/"):
+    lengthPath += 1
 
 f = open(file_path, 'r+')
-latexF = open("w-2_formatTesting.tex",'w')
+file_path = file_path.strip(s)
+file_path = file_path+"/w-2_formatTesting.tex"
+latexF = open(file_path,'w')
 latexF.write("\\documentclass[10pt]{report}\n\\usepackage{tikz}\n\\usepackage{geometry}")
 latexF.write("\n\geometry{legalpaper, portrait, margin=0in}\n\n")
 latexF.write("\\newcommand\PlaceText[3]{%\n\\begin{tikzpicture}[remember picture,overlay]\n")
@@ -24,7 +29,6 @@ listOfPersons = []
 for line in f: # Reads all the lines in the file
     if (not line.isspace()): # Ignore al the empty lines
         if (line == "</w2>\n") or (line == "</w2>"):
-            print("soem")
             listOfPersons.append(info)
             info = {}
             numW2 += 1
@@ -186,3 +190,4 @@ for p in listOfPersons:
 
     latexF.write("\n\\newpage")
 latexF.write("\n\\end{document}")
+
