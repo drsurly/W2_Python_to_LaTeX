@@ -16,7 +16,7 @@ f = open(file_path, 'r+')
 file_path = file_path.strip(s)
 file_path = file_path+"/w-2_formatTesting.tex"
 latexF = open(file_path,'w')
-latexF.write("\\documentclass[10pt]{report}\n\\usepackage{tikz}\n\\usepackage{geometry}")
+latexF.write("\\documentclass[10pt]{report}\n\\usepackage{tikz}\n\\usepackage{geometry}\n\\usepackage{graphicx}")
 latexF.write("\n\geometry{legalpaper, portrait, margin=0in}\n\n")
 latexF.write("\\newcommand\PlaceText[3]{%\n\\begin{tikzpicture}[remember picture,overlay]\n")
 latexF.write("\\node[outer sep=0pt,inner sep=0pt,anchor=south west] \n at ([xshift=#1,yshift=-#2]current page.north west) {#3};\n")
