@@ -19,7 +19,7 @@ f = open(file_path, 'r+')
 file_path = file_path.strip(s)
 file_path = file_path+"/w-2_"+str(d.month)+str(d.day)+str(d.year)+str(d.hour)+str(d.minute)+".tex"
 latexF = open(file_path,'w')
-latexF.write("\\documentclass[10pt]{report}\n\\usepackage{tikz}\n\\usepackage{geometry}\n\\usepackage{graphicx}")
+latexF.write("\\documentclass[10pt]{report}\n\\usepackage{tikz}\n\\usepackage{geometry}\n\\usepackage{graphicx}\n\\usepackage{epstopdf}")
 latexF.write("\n\geometry{legalpaper, portrait, margin=0in}\n\n")
 latexF.write("\n\\usepackage[absolute,overlay]{textpos}")
 latexF.write("\n\\newcommand\PlaceText[3]{%\n\\begin{tikzpicture}[remember picture,overlay]\n")
