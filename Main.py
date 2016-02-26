@@ -3,6 +3,9 @@
 
 import tkinter as tk
 from tkinter import filedialog
+import datetime
+
+d = datetime.datetime.now()
 
 root = tk.Tk()
 root.withdraw()
@@ -14,11 +17,12 @@ for s in file_path.split("/"):
 
 f = open(file_path, 'r+')
 file_path = file_path.strip(s)
-file_path = file_path+"/w-2_formatTesting.tex"
+file_path = file_path+"/w-2_"+str(d.month)+str(d.day)+str(d.year)+str(d.hour)+str(d.minute)+".tex"
 latexF = open(file_path,'w')
 latexF.write("\\documentclass[10pt]{report}\n\\usepackage{tikz}\n\\usepackage{geometry}\n\\usepackage{graphicx}")
 latexF.write("\n\geometry{legalpaper, portrait, margin=0in}\n\n")
-latexF.write("\\newcommand\PlaceText[3]{%\n\\begin{tikzpicture}[remember picture,overlay]\n")
+latexF.write("\n\\usepackage[absolute,overlay]{textpos}")
+latexF.write("\n\\newcommand\PlaceText[3]{%\n\\begin{tikzpicture}[remember picture,overlay]\n")
 latexF.write("\\node[outer sep=0pt,inner sep=0pt,anchor=south west] \n at ([xshift=#1,yshift=-#2]current page.north west) {#3};\n")
 latexF.write("\end{tikzpicture}%\n}\n\\begin{document}")
 info = {}
@@ -187,6 +191,21 @@ for p in listOfPersons:
         latexF.write("\n\PlaceText{"+str(15)+"mm}{"+str(38+Y+k)+"mm}{"+ae2+"}")
 
         k += 1
+
+    latexF.write("\n\\begin{textblock*}{5cm}(10mm,260mm)")
+    latexF.write("\n\includegraphics[scale=0.15]{UTRGV-Fullname-Black.eps}")
+    latexF.write("\n\\end{textblock*}")
+
+    latexF.write("\n\PlaceText{"+str(17)+"mm}{"+str(285)+"mm}{"+ae1+"}")
+    latexF.write("\n\PlaceText{"+str(17)+"mm}{"+str(289)+"mm}{"+ae2+"}")
+
+    latexF.write("\n\PlaceText{"+str(80)+"mm}{"+str(327)+"mm}{"+name+" "+suff+" "+lastName+"}")
+    latexF.write("\n\PlaceText{"+str(80)+"mm}{"+str(332)+"mm}{"+a1+"}")
+    latexF.write("\n\PlaceText{"+str(80)+"mm}{"+str(335)+"mm}{"+a2+"}")
+
+    latexF.write("\n\\begin{textblock*}{5cm}(170mm,265mm)")
+    latexF.write("\n\includegraphics[scale=0.25]{FIRST_CLASS_INDICIA.eps}")
+    latexF.write("\n\\end{textblock*}")
 
     latexF.write("\n\\newpage")
 latexF.write("\n\\end{document}")
