@@ -1,0 +1,85 @@
+\documentclass[10pt]{report}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\geometry{legalpaper, portrait, margin=0in}
+
+
+\usepackage[absolute,overlay]{textpos}
+\newcommand\PlaceText[3]{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[outer sep=0pt,inner sep=0pt,anchor=south west] 
+ at ([xshift=#1,yshift=-#2]current page.north west) {#3};
+\end{tikzpicture}%
+}
+\begin{document}
+\PlaceText{130mm}{15mm}{2000.00}
+\PlaceText{166mm}{28mm}{6.00}
+\PlaceText{166mm}{15mm}{25.00}
+\PlaceText{15mm}{30mm}{University of Texas Rio Grande Valley}
+\PlaceText{130mm}{28mm}{300.00}
+\PlaceText{95mm}{53mm}{12-3456789}
+\PlaceText{130mm}{53mm}{000-00-0000}
+\PlaceText{166mm}{22mm}{20.00}
+\PlaceText{130mm}{22mm}{300.00}
+\PlaceText{15mm}{48mm}{First Suffix Last}
+\PlaceText{15mm}{53mm}{123 My Street}
+\PlaceText{15mm}{56mm}{Brownsville TX 78526}
+\PlaceText{15mm}{34mm}{1201 West University Drive}
+\PlaceText{15mm}{38mm}{Edinburg TX 78539}
+\PlaceText{130mm}{78mm}{2000.00}
+\PlaceText{166mm}{91mm}{6.00}
+\PlaceText{166mm}{78mm}{25.00}
+\PlaceText{15mm}{93mm}{University of Texas Rio Grande Valley}
+\PlaceText{130mm}{91mm}{300.00}
+\PlaceText{95mm}{116mm}{12-3456789}
+\PlaceText{130mm}{116mm}{000-00-0000}
+\PlaceText{166mm}{85mm}{20.00}
+\PlaceText{130mm}{85mm}{300.00}
+\PlaceText{15mm}{111mm}{First Suffix Last}
+\PlaceText{15mm}{116mm}{123 My Street}
+\PlaceText{15mm}{119mm}{Brownsville TX 78526}
+\PlaceText{15mm}{97mm}{1201 West University Drive}
+\PlaceText{15mm}{101mm}{Edinburg TX 78539}
+\PlaceText{130mm}{141mm}{2000.00}
+\PlaceText{166mm}{154mm}{6.00}
+\PlaceText{166mm}{141mm}{25.00}
+\PlaceText{15mm}{156mm}{University of Texas Rio Grande Valley}
+\PlaceText{130mm}{154mm}{300.00}
+\PlaceText{95mm}{179mm}{12-3456789}
+\PlaceText{130mm}{179mm}{000-00-0000}
+\PlaceText{166mm}{148mm}{20.00}
+\PlaceText{130mm}{148mm}{300.00}
+\PlaceText{15mm}{174mm}{First Suffix Last}
+\PlaceText{15mm}{179mm}{123 My Street}
+\PlaceText{15mm}{182mm}{Brownsville TX 78526}
+\PlaceText{15mm}{160mm}{1201 West University Drive}
+\PlaceText{15mm}{164mm}{Edinburg TX 78539}
+\PlaceText{130mm}{204mm}{2000.00}
+\PlaceText{166mm}{217mm}{6.00}
+\PlaceText{166mm}{204mm}{25.00}
+\PlaceText{15mm}{219mm}{University of Texas Rio Grande Valley}
+\PlaceText{130mm}{217mm}{300.00}
+\PlaceText{95mm}{242mm}{12-3456789}
+\PlaceText{130mm}{242mm}{000-00-0000}
+\PlaceText{166mm}{211mm}{20.00}
+\PlaceText{130mm}{211mm}{300.00}
+\PlaceText{15mm}{237mm}{First Suffix Last}
+\PlaceText{15mm}{242mm}{123 My Street}
+\PlaceText{15mm}{245mm}{Brownsville TX 78526}
+\PlaceText{15mm}{223mm}{1201 West University Drive}
+\PlaceText{15mm}{227mm}{Edinburg TX 78539}
+\begin{textblock*}{5cm}(10mm,260mm)
+\includegraphics[scale=0.15]{UTRGV-Fullname-Black.eps}
+\end{textblock*}
+\PlaceText{17mm}{285mm}{1201 West University Drive}
+\PlaceText{17mm}{289mm}{Edinburg TX 78539}
+\PlaceText{80mm}{327mm}{First Suffix Last}
+\PlaceText{80mm}{332mm}{123 My Street}
+\PlaceText{80mm}{335mm}{Brownsville TX 78526}
+\begin{textblock*}{5cm}(170mm,265mm)
+\includegraphics[scale=0.25]{FIRST_CLASS_INDICIA.eps}
+\end{textblock*}
+\newpage
+\end{document}
